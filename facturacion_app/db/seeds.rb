@@ -25,7 +25,16 @@ Provider.create!([
 ])	
 
 Student.create!([
-	{name:"Samuel",l_name:"Melgarejo",identification:"V-22694771",adress:"Cua estado Miranda",phone:"04262163734",email:"samuel021093@gmail.com",active:"active"},
-	{name:"Rosa",l_name:"Meltroso",identification:"V-12345678",adress:"Tukilandia",phone:"02121234567",email:"rosita69@hotmail.com",active:"active"},
-	{name:"Alan",l_name:"Brito",identification:"V-12345679",adress:"mi casita bulda'ehbien",phone:"02391234567",email:"elmio@hotmail.com",active:"inactive"}
+	{name:"Samuel",l_name:"Melgarejo",identification:"V-22694771",adress:"Cua estado Miranda",phone:"04262163734",email:"samuel021093@gmail.com",active:"active",client_id: 1},
+	{name:"Anderson",l_name:"Sanchez",identification:"V-23644884",adress:"Cotiza",phone:"04163536865",email:"andersoccer@hotmail.com",active:"inactive",client_id: 1},
+	{name:"Carmen",l_name:"Ramirez",identification:"V-18375869",adress:"Ciudad Universitaria",phone:"02126622676",email:"divastar14@hotmail.com",active:"active",client_id: 2},
+	{name:"Oriana",l_name:"Mesa",identification:"V-9876543",adress:"Bello Monte",phone:"02126614553",email:"ori3_11@hotmail.com",active:"active",client_id: 2},
+	{name:"Osito",l_name:"Traviso",identification:"I-69345678",adress:"tu cama",phone:"67890654324",email:"ositostravieso69@gmail.com",active:"inactive",client_id: 3},
+	{name:"Osama",l_name:"Bin laden",identification:"M-23565334",adress:"Escondido o muerto en alguna parte del mundo",phone:"01234567890",email:"superterrorista@ala.com",active:"inactive",client_id: 3},
+	{name:"Rosa",l_name:"Meltroso",identification:"V-12345678",adress:"Tukilandia",phone:"02121234567",email:"rosita69@hotmail.com",active:"active",client_id: 4},
+	{name:"Alan",l_name:"Brito",identification:"V-12345679",adress:"mi casita bulda'ehbien",phone:"02391234567",email:"elmio@hotmail.com",active:"inactive",client_id: 4},
+	{name:"yasuri",l_name:"yurivilaska",identification:"T-34567843",adress:"Terrasas eh petare bulda eh'ien menol",phone:"04242345643",email:"supertuki@tukis.com",active:"active",client_id: 5},
+	{name:"Hector",l_name:"el Father",identification:"V-23644854",adress:"El junquito",phone:"34567864246",email:"hector12j@gmail.com",active:"active",client_id: 5},
+	{name:"lila",l_name:"limon",identification:"V-34567124",adress:"Jardin del avila",phone:"98765434567",email:"milimones@msn.com",active:"active",client_id: 6},
+	{name:"Pato",l_name:"Delfin",identification:"E-34664865",adress:"Lago de los cisnes",phone:"34534567098",email:"laguito@msn.com",active:"inactive",client_id: 6}
 ])

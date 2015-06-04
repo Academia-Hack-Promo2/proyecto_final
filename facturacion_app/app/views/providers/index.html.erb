@@ -1,0 +1,25 @@
+<div><h1>Providers List</h1></div>
+<table class="table" border=1>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rif</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.name %></td>
+        <td><%= provider.rif %></td>
+        <td><%= provider.phone %></td>
+        <td><%= provider.email %></td>
+        <td><%= provider.adress %></td>
+        <td><%= link_to "Edit", edit_provider_path(provider), class:"btn btn-default" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Create Provider", new_provider_path, class:"btn btn-success" %>

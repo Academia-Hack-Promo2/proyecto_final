@@ -1,0 +1,25 @@
+<div><h1>Client List</h1></div>
+<table class="table" border=1>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rif</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.rif %></td>
+        <td><%= client.phone %></td>
+        <td><%= client.email %></td>
+        <td><%= client.adress %></td>
+        <td><%= link_to "Edit", edit_client_path(client), class:"btn btn-default" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Create Client", new_client_path, class:"btn btn-success" %>

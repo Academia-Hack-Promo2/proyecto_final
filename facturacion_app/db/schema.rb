@@ -14,20 +14,20 @@
 ActiveRecord::Schema.define(version: 20150604004203) do
 
   create_table "bills", force: :cascade do |t|
-    t.string   "bill_number",    limit: 255
-    t.string   "bill_control",   limit: 255
+    t.string   "bill_number",    limit: 10,    null: false
+    t.string   "bill_control",   limit: 10,    null: false
     t.date     "issue_date"
     t.date     "payment_date"
-    t.string   "client_rif",     limit: 255
-    t.string   "client_name",    limit: 255
+    t.string   "client_rif",     limit: 15,    null: false
+    t.string   "client_name",    limit: 40,    null: false
     t.string   "client_adress",  limit: 255
-    t.string   "client_phone",   limit: 255
-    t.string   "client_email",   limit: 255
+    t.string   "client_phone",   limit: 11,    null: false
+    t.string   "client_email",   limit: 30
     t.text     "detail",         limit: 65535
-    t.integer  "quantity",       limit: 4
-    t.integer  "unit_price",     limit: 4
-    t.integer  "tax",            limit: 4
-    t.integer  "bill_total",     limit: 4
+    t.integer  "quantity",       limit: 4,     null: false
+    t.integer  "unit_price",     limit: 4,     null: false
+    t.integer  "tax",            limit: 4,     null: false
+    t.integer  "bill_total",     limit: 4,     null: false
     t.integer  "service_id",     limit: 4
     t.integer  "client_id",      limit: 4
     t.integer  "transaction_id", limit: 4
@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "bills", ["transaction_id"], name: "index_bills_on_transaction_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "rif",        limit: 255
-    t.string   "adress",     limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "email",      limit: 255
+    t.string   "name",       limit: 40,  null: false
+    t.string   "rif",        limit: 15,  null: false
+    t.string   "address",    limit: 255
+    t.string   "phone",      limit: 11,  null: false
+    t.string   "email",      limit: 30,  null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -54,12 +54,12 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "clients", ["rif"], name: "index_clients_on_rif", using: :btree
 
   create_table "provider_bills", force: :cascade do |t|
-    t.integer  "bill_number",    limit: 4
+    t.integer  "bill_number",    limit: 4,     null: false
     t.text     "description",    limit: 65535
-    t.integer  "amount",         limit: 4
-    t.integer  "status",         limit: 4
-    t.integer  "payment_number", limit: 4
-    t.integer  "provider_id",    limit: 4
+    t.integer  "amount",         limit: 4,     null: false
+    t.integer  "status",         limit: 4,     null: false
+    t.integer  "payment_number", limit: 4,     null: false
+    t.integer  "provider_id",    limit: 4,     null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
@@ -70,11 +70,11 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "provider_bills", ["status"], name: "index_provider_bills_on_status", using: :btree
 
   create_table "providers", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "rif",        limit: 255
+    t.string   "name",       limit: 40,  null: false
+    t.string   "rif",        limit: 15,  null: false
     t.string   "adress",     limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "email",      limit: 255
+    t.string   "phone",      limit: 11,  null: false
+    t.string   "email",      limit: 30,  null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "providers", ["rif"], name: "index_providers_on_rif", using: :btree
 
   create_table "services", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "details",    limit: 255
-    t.integer  "amount",     limit: 4
+    t.string   "name",       limit: 40,  null: false
+    t.string   "details",    limit: 255, null: false
+    t.integer  "amount",     limit: 4,   null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -92,13 +92,13 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "services", ["name"], name: "index_services_on_name", using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.string   "l_name",         limit: 255
-    t.string   "identification", limit: 255
+    t.string   "name",           limit: 15,  null: false
+    t.string   "l_name",         limit: 15,  null: false
+    t.string   "identification", limit: 255, null: false
     t.string   "adress",         limit: 255
-    t.string   "phone",          limit: 255
-    t.string   "email",          limit: 255
-    t.integer  "active",         limit: 4
+    t.string   "phone",          limit: 11,  null: false
+    t.string   "email",          limit: 30,  null: false
+    t.integer  "active",         limit: 1,   null: false
     t.integer  "client_id",      limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -108,26 +108,26 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "students", ["identification"], name: "index_students_on_identification", using: :btree
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "transaction_number", limit: 255
-    t.integer  "transaction_total",  limit: 4
-    t.date     "transaction_date"
-    t.integer  "bill_number",        limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "transaction_number", limit: 10, null: false
+    t.integer  "transaction_total",  limit: 4,  null: false
+    t.date     "transaction_date",              null: false
+    t.integer  "bill_number",        limit: 4,  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "transactions", ["bill_number"], name: "index_transactions_on_bill_number", using: :btree
   add_index "transactions", ["transaction_number"], name: "index_transactions_on_transaction_number", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.string   "l_name",         limit: 255
-    t.string   "identification", limit: 255
-    t.string   "adress",         limit: 255
-    t.string   "phone",          limit: 255
-    t.string   "email",          limit: 255
-    t.string   "u_name",         limit: 255
-    t.string   "u_passwd",       limit: 255
+    t.string   "name",           limit: 15,  null: false
+    t.string   "l_name",         limit: 15,  null: false
+    t.string   "identification", limit: 11,  null: false
+    t.string   "adress",         limit: 255, null: false
+    t.string   "phone",          limit: 11,  null: false
+    t.string   "email",          limit: 30,  null: false
+    t.string   "u_name",         limit: 15,  null: false
+    t.string   "u_passwd",       limit: 20,  null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end

@@ -1,20 +1,21 @@
 class CreateBills < ActiveRecord::Migration
   def change
     create_table :bills do |t|
-      t.string :bill_number, index: true
-      t.string :bill_control, index: true
+      t.string :bill_number, limit: 10, null: false, index: true
+      t.string :bill_control, limit: 10, null: false, index: true
       t.date :issue_date
-      t.date :payment_date
-      t.string :client_rif
-      t.string :client_name
-      t.string :client_adress
-      t.string :client_phone
-      t.string :client_email
+      t.date :payment_date, null: true
+      t.string :client_rif, limit: 15, null: false
+      t.string :client_name, limit: 40, null: false
+      t.string :client_adress, null: true
+      t.string :client_phone, limit: 11, null: false
+      t.string :client_email, limit: 30, null: true
       t.text :detail
-      t.integer :quantity
-      t.integer :unit_price
-      t.integer :tax
-      t.integer :bill_total
+      t.integer :quantity, null: false
+      t.integer :unit_price, null: false
+      t.integer :tax, null: false
+      t.integer :bill_total, null: false
+
       t.references :service, index: true, foreign_key: true
       t.references :client, index: true, foreign_key: true
       t.references :transaction, index: true, foreign_key: true

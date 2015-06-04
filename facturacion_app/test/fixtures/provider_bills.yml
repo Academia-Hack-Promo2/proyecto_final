@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bill_number: 
+  description: MyText
+  amount: 
+  status: 
+  payment_number: 
+  provider_id: 
+
+two:
+  bill_number: 
+  description: MyText
+  amount: 
+  status: 
+  payment_number: 
+  provider_id: 

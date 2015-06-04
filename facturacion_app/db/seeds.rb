@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Bill.destroy_all
+Student.destroy_all
+Provider.destroy_all
+Client.destroy_all
+Service.destroy_all
+
 Client.create!([
 	{name:"Gamatel Telecomunicaciones",rif:"J-30396386-2",address:"Caracas, Av. 4ta, cruce con, Transv. 1ra Y 2da, Edificio Unión, Piso PB, Local D, Urbanización Los Palos Grandes",phone:"02122867260",email:"telecomunicaciones@gmail.com"},
 	{name:"Unidad Educativa Cultura y Tecnología",rif:"J-07579721-3",address:"Maracay, Cl. El Canal, Casa 0, Nivel 0, Local 18, Barrio Libertad",phone:"02432474204",email:"uect@gmail.com"},
@@ -38,3 +44,13 @@ Student.create!([
 	{name:"lila",l_name:"limon",identification:"V-34567124",adress:"Jardin del avila",phone:"98765434567",email:"milimones@msn.com",active:"active",client_id: 6},
 	{name:"Pato",l_name:"Delfin",identification:"E-34664865",adress:"Lago de los cisnes",phone:"34534567098",email:"laguito@msn.com",active:"inactive",client_id: 6}
 ])
+
+Service.create!([
+	{name:"Curso HACK (de contado)", details:"Curso intesivo para programadores", amount:54000},
+	{name:"Curso HACK (imscripcion)", details:"Curso intesivo para programadores", amount:20000},
+	{name:"Curso HACK (mensualidad)", details:"Curso intesivo para programadores", amount:9500}
+])
+
+Bill.create!([
+	{bill_number:"0000000001", bill_control:"2340056412", issue_date: "2015-06-04" , payment_date: "2015-06-10", client_rif: "J-00275428-1", client_name: "", client_adress: "", client_phone: "", client_email: "", detail: "", quantity: "", unit_price: "", tax: "", bill_total: "", service_id: "", client_id: "", transaction_id: ""}
+	])

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   create_table "bills", force: :cascade do |t|
     t.string   "bill_number",    limit: 10,    null: false
     t.string   "bill_control",   limit: 10,    null: false
-    t.date     "issue_date"
+    t.date     "issue_date",                   null: false
     t.date     "payment_date"
     t.string   "client_rif",     limit: 15,    null: false
     t.string   "client_name",    limit: 40,    null: false
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   create_table "providers", force: :cascade do |t|
     t.string   "name",       limit: 40,  null: false
     t.string   "rif",        limit: 15,  null: false
-    t.string   "adress",     limit: 255
+    t.string   "adress",     limit: 255, null: false
     t.string   "phone",      limit: 11,  null: false
     t.string   "email",      limit: 30,  null: false
     t.datetime "created_at",             null: false
@@ -94,11 +94,11 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   create_table "students", force: :cascade do |t|
     t.string   "name",           limit: 15,  null: false
     t.string   "l_name",         limit: 15,  null: false
-    t.string   "identification", limit: 255, null: false
     t.string   "adress",         limit: 255
     t.string   "phone",          limit: 11,  null: false
     t.string   "email",          limit: 30,  null: false
     t.integer  "active",         limit: 1,   null: false
+    t.string   "identification", limit: 10,  null: false
     t.integer  "client_id",      limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.string   "name",           limit: 15,  null: false
     t.string   "l_name",         limit: 15,  null: false
     t.string   "identification", limit: 11,  null: false
-    t.string   "adress",         limit: 255, null: false
+    t.string   "adress",         limit: 255
     t.string   "phone",          limit: 11,  null: false
     t.string   "email",          limit: 30,  null: false
     t.string   "u_name",         limit: 15,  null: false

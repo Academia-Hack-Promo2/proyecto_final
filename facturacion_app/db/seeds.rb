@@ -22,4 +22,10 @@ Provider.create!([
 	{name:"VIT C.A.",rif:"G-20009381-1",adress:"Falcón, Punto Fijo, Av. Bolívar, V.I.T, Urbanización Zona Franca",phone:"08004636848",email:"vit@gobierno.com"},
 	{name:"FL Inter Corp Excutive, CA",rif:"J-30168407-9",adress:"Caracas, Local S/N, Sector Catia",phone:"02128703922",email:"quelala@gmail.com"},
 	{name:"chicasmalas",rif:"j-20264865-7",adress:"Al lado del Chorizo",phone:"08001234567",email:"tuchicamala@sex.com"}
+])	
+
+Student.create!([
+	{name:"Samuel",l_name:"Melgarejo",identification:"V-22694771",adress:"Cua estado Miranda",phone:"04262163734",email:"samuel021093@gmail.com",active:"active"},
+	{name:"Rosa",l_name:"Meltroso",identification:"V-12345678",adress:"Tukilandia",phone:"02121234567",email:"rosita69@hotmail.com",active:"active"},
+	{name:"Alan",l_name:"Brito",identification:"V-12345679",adress:"mi casita bulda'ehbien",phone:"02391234567",email:"elmio@hotmail.com",active:"inactive"}
 ])

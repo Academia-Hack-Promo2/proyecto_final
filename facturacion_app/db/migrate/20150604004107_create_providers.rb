@@ -3,7 +3,7 @@ class CreateProviders < ActiveRecord::Migration
     create_table :providers do |t|
       t.string :name, limit: 40, null: false
       t.string :rif, limit: 15, index: true, null:false
-      t.string :adress
+      t.string :adress, null: false
       t.string :phone, limit: 11, null:false
       t.string :email, limit: 30, null: false
 

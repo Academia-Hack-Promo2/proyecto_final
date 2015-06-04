@@ -3,7 +3,7 @@ class CreateBills < ActiveRecord::Migration
     create_table :bills do |t|
       t.string :bill_number, limit: 10, null: false, index: true
       t.string :bill_control, limit: 10, null: false, index: true
-      t.date :issue_date
+      t.date :issue_date, null: false
       t.date :payment_date, null: true
       t.string :client_rif, limit: 15, null: false
       t.string :client_name, limit: 40, null: false

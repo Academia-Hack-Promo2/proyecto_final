@@ -51,6 +51,6 @@ Service.create!([
 	{name:"Curso HACK (mensualidad)", details:"Curso intesivo para programadores", amount:9500}
 ])
 
-Bill.create!([
-	{bill_number:"0000000001", bill_control:"2340056412", issue_date: "2015-06-04" , payment_date: "2015-06-10", client_rif: "J-00275428-1", client_name: "", client_adress: "", client_phone: "", client_email: "", detail: "", quantity: "", unit_price: "", tax: "", bill_total: "", service_id: "", client_id: "", transaction_id: ""}
-	])
+# Bill.create!([
+# 	{bill_number:"0000000001", bill_control:"2340056412", issue_date: "2015-06-04" , payment_date: "2015-06-10", client_rif: "J-00275428-1", client_name: "", client_adress: "", client_phone: "", client_email: "", detail: "", quantity: "", unit_price: "", tax: "", bill_total: "", service_id: "", client_id: "", transaction_id: ""}
+# 	])

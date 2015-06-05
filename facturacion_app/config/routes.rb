@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :providers
   get 'clients/index'
   resources :clients
+ 
+  resources :services
 end

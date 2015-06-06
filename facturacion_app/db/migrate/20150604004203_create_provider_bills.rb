@@ -4,9 +4,10 @@ class CreateProviderBills < ActiveRecord::Migration
       t.integer :bill_number, null:false, index: true
       t.text :description 
       t.integer :amount, null:false
-      t.integer :status, null:false, index: true
-      t.integer :payment_number, null:false, index: true
-      t.references :provider, null:false, index: true, foreign_key: true
+      t.integer :status, null:false, index: true, limit: 1
+      t.integer :payment_number, null:true, index: true
+     
+      t.references :provider, index: true, foreign_key: true
 
       t.timestamps null: false
     end

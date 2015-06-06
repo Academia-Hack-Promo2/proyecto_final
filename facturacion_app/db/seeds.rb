@@ -6,11 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+ProviderBill.destroy_all
 Bill.destroy_all
 Student.destroy_all
 Provider.destroy_all
-Client.destroy_all
 Service.destroy_all
+Client.destroy_all
 
 Client.create!([
 	{name:"Gamatel Telecomunicaciones",rif:"J-30396386-2",address:"Caracas, Av. 4ta, cruce con, Transv. 1ra Y 2da, Edificio Unión, Piso PB, Local D, Urbanización Los Palos Grandes",phone:"02122867260",email:"telecomunicaciones@gmail.com"},
@@ -46,9 +47,15 @@ Student.create!([
 ])
 
 Service.create!([
-	{name:"Curso HACK (de contado)", details:"Curso intesivo para programadores", amount:54000},
-	{name:"Curso HACK (imscripcion)", details:"Curso intesivo para programadores", amount:20000},
-	{name:"Curso HACK (mensualidad)", details:"Curso intesivo para programadores", amount:9500}
+	{name:"Curso HACK (de contado)", details:"Curso intesivo para programadores pago de contado", amount:54000},
+	{name:"Curso HACK (inscripcion)", details:"Curso intesivo para programadores pago por partes(inscripcion)", amount:20000},
+	{name:"Curso HACK (mensualidad)", details:"Curso intesivo para programadores pago por partes(mensualidad)", amount:9500}
+])
+
+ProviderBill.create!([
+	{bill_number:100000123, description: "Pago de servicios electricos del mes de mayo del 2015",amount: 4000, status: "pendiente", payment_number: 0, provider_id: 3},
+	{bill_number:203000034, description: "Servicio de agua potable del mes de mayo del 2015",amount: 2000, status: "pendiente", payment_number: 0, provider_id: 1},
+	{bill_number:203000034, description: "Servicio Internet de 10Mb mes de mayo del 2015",amount: 10000, status: "pendiente", payment_number: 0, provider_id: 5}
 ])
 
 # Bill.create!([

@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.integer  "bill_number",    limit: 4,     null: false
     t.text     "description",    limit: 65535
     t.integer  "amount",         limit: 4,     null: false
-    t.integer  "status",         limit: 4,     null: false
-    t.integer  "payment_number", limit: 4,     null: false
-    t.integer  "provider_id",    limit: 4,     null: false
+    t.integer  "status",         limit: 1,     null: false
+    t.integer  "payment_number", limit: 4
+    t.integer  "provider_id",    limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end

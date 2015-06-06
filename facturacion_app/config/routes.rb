@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :clients
  
   resources :services
+
+  resources :provider_bills
 end

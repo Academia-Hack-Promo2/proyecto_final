@@ -1,5 +1,9 @@
-<h1>Edit Provider</h1>
-
+<div class="row">
+	<div class="container">
+		<div class="col-md-offset-2 col-md-8">    
+			<div class="panel panel-primary">
+				<div class="panel-heading"><i class="fa fa-users"></i> Edit Provider</div>
+				<div class="panel-body">
 <%= semantic_form_for @provider do |f| %>
   <%= f.input :name %>
   <%= f.input :phone %>
@@ -7,3 +11,8 @@
   <%= f.input :adress %>
 <%= f.action :submit, :label => "Update", :button_html => { :class => "btn btn-primary"} %>
 <% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

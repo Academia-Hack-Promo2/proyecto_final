@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="container">
+    <div class="col-md-12">    
+      <div class="panel panel-primary">
+        <div class="panel-heading"><i class="fa fa-users"></i> Clients List</div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Bill Numbee</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Payment Number</th>
+                <th>provider_id</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @p_bills.each do |p_bill| %>
+              <tr>
+                <td><%= p_bill.bill_number %></td>
+                <td><%= p_bill.description %></td>
+                <td><%= p_bill.amount %></td>
+                <td><%= p_bill.status %></td>
+                <td><%= p_bill.payment_number %></td>
+                <td><%= p_bill.provider_id %></td>
+                <td><%= link_to "Edit", edit_provider_bill_path(p_bill), class:"btn btn-default" %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to "Create Provider Bill", new_provider_bill_path, class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

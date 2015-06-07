@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
 		if @student.save
 			redirect_to services_path
 		else
-			reditect 'new'
+			render 'new'
 		end
 	end
 	def edit
@@ -21,7 +21,7 @@ class ServicesController < ApplicationController
 		if @student.update(permit_params)
 			redirect_to students_path
 		else
-			redirect 'new'
+			render 'new'
 		end
 	end
 	def destroy

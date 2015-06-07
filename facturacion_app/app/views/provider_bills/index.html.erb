@@ -2,7 +2,18 @@
   <div class="container">
     <div class="col-md-12">    
       <div class="panel panel-primary">
-        <div class="panel-heading"><i class="fa fa-users"></i> Clients List</div>
+       <div class="panel-heading">
+          <div class="row">  
+            <div class="col-md-2">
+             <span class="input-group-addon" id="basic-addon1"> <i class="fa fa-list-alt"></i> Providers Bills</span>
+            </div>
+            <div class="btn-group col-md-3 col-md-offset-7" role="group">
+              <%= link_to "All", 'http://localhost:3000/provider_bills', class:"btn btn-default" %>
+              <%= link_to "Pendites", 'http://localhost:3000/provider_bills?status=0', class:"btn btn-default" %>
+              <%= link_to "Canceladas", 'http://localhost:3000/provider_bills?status=1', class:"btn btn-default" %>
+            </div>
+          </div>
+        </div>
         <div class="panel-body">
           <table class="table table-hover">
             <thead>
@@ -12,7 +23,7 @@
                 <th>Amount</th>
                 <th>Status</th>
                 <th>Payment Number</th>
-                <th>provider_id</th>
+                <th>Provider id</th>
               </tr>
             </thead>
             <tbody>

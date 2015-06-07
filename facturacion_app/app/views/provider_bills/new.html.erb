@@ -11,6 +11,9 @@
 					<%= f.input :status, placeholder: "pendiente/pagada" %>
 					<%= f.input :payment_number, placeholder: "Insert Payment Number" %>
 					<%= f.input :provider_id, placeholder: "Insert provider" %>
+					<% end %>
+					<%= semantic_form_for @p_bill do |f| %>
+					<%= f.input :provider_id %>
 					<%= f.action :submit, :label => "Submit", :button_html => { :class => "btn btn-primary"} %>
 					<% end %>
 				</div>

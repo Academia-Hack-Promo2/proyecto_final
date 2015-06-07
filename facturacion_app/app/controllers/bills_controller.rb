@@ -1,6 +1,11 @@
 class BillsController < ApplicationController
   def index
-    @bills = Bill.all
+    @bills = nil
+    if params[:status].nil?
+      @bills = Bill.all
+    else
+      @bills = Bill.where("status" => params[:status])
+    end
   end
   def new
     @bill = Bill.new
@@ -10,7 +15,7 @@ class BillsController < ApplicationController
     if @bill.save
       redirect_to Bills_path
     else
-      reditect 'new'
+      render 'new'
     end
   end
   def edit
@@ -21,7 +26,7 @@ class BillsController < ApplicationController
     if @bill.update(permit_params)
       redirect_to bills_path
     else
-      redirect 'new'
+      render 'edit'
     end
   end
   def destroy

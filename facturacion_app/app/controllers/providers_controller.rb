@@ -10,7 +10,7 @@ class ProvidersController < ApplicationController
     if @provider.save
       redirect_to providers_path
     else
-      reditect 'new'
+      render 'new'
     end
   end
   def edit
@@ -21,7 +21,7 @@ class ProvidersController < ApplicationController
     if @provider.update(permit_params)
       redirect_to providers_path
     else
-      redirect 'new'
+      render 'edit'
     end
   end
   def destroy

@@ -10,7 +10,7 @@ class ClientsController < ApplicationController
     if @client.save
       redirect_to clients_path
     else
-      reditect 'new'
+      render 'new'
     end
   end
   def edit
@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
     if @client.update(permit_params)
       redirect_to clients_path
     else
-      redirect 'new'
+      render 'edit'
     end
   end
   def destroy

@@ -2,6 +2,10 @@ class ServicesController < ApplicationController
 	def index
 		@services = Service.all
 	end
+	def bindex
+		@services = Service.all
+		@aux = params[:client_id] 
+	end
 	def new
 		@service = Service.new
 	end

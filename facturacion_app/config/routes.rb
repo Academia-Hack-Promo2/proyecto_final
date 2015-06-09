@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :provider_bills
 
   resources :bills
-  get "/clients/:id/new_bill" => "bills#new"
+  get "/clients/:client_id/services/:service_id/new_bill" => "bills#new"
+   get "/clients/:client_id/services" => "services#bindex"
 end

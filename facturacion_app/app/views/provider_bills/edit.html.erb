@@ -4,7 +4,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading"><i class="fa fa-pencil-square-o"></i> Edit Provider bill status</div>
 				<div class="panel-body">
-					<%= semantic_form_for @p_bill do |f| %>
+					<%= semantic_form_for @provider_bill do |f| %>
 					<%= f.input :status, placeholder: "pendiente/pagado" %>
 					<%= f.action :submit, :label => "Update", :button_html => { :class => "btn btn-primary"} %>
 					<% end %>

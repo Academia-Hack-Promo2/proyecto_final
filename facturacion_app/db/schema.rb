@@ -59,16 +59,14 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.string   "description",    limit: 255
     t.integer  "amount",         limit: 4,   null: false
     t.string   "status",         limit: 9,   null: false
-    t.integer  "payment_number", limit: 4
     t.integer  "provider_id",    limit: 4
+    t.integer  "transaction_id", limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "provider_bills", ["bill_number"], name: "index_provider_bills_on_bill_number", using: :btree
-  add_index "provider_bills", ["payment_number"], name: "index_provider_bills_on_payment_number", using: :btree
   add_index "provider_bills", ["provider_id"], name: "index_provider_bills_on_provider_id", using: :btree
-  add_index "provider_bills", ["status"], name: "index_provider_bills_on_status", using: :btree
+  add_index "provider_bills", ["transaction_id"], name: "index_provider_bills_on_transaction_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
     t.string   "name",       limit: 40,  null: false
@@ -80,8 +78,6 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "providers", ["rif"], name: "index_providers_on_rif", using: :btree
-
   create_table "services", force: :cascade do |t|
     t.string   "name",       limit: 40,  null: false
     t.string   "details",    limit: 255, null: false
@@ -89,8 +85,6 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  add_index "services", ["name"], name: "index_services_on_name", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "name",           limit: 15,  null: false
@@ -106,19 +100,15 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   end
 
   add_index "students", ["client_id"], name: "index_students_on_client_id", using: :btree
-  add_index "students", ["identification"], name: "index_students_on_identification", using: :btree
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "transaction_number", limit: 10, null: false
+    t.string   "transaction_number", limit: 20, null: false
     t.integer  "transaction_total",  limit: 4,  null: false
     t.date     "transaction_date",              null: false
     t.integer  "bill_number",        limit: 4,  null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
-
-  add_index "transactions", ["bill_number"], name: "index_transactions_on_bill_number", using: :btree
-  add_index "transactions", ["transaction_number"], name: "index_transactions_on_transaction_number", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",           limit: 15,  null: false
@@ -140,5 +130,6 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_foreign_key "bills", "services"
   add_foreign_key "bills", "transactions"
   add_foreign_key "provider_bills", "providers"
+  add_foreign_key "provider_bills", "transactions"
   add_foreign_key "students", "clients"
 end

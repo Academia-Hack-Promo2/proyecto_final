@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
 	end
 	def create
 		@service = Service.new(permit_params)
-		if @student.save
+		if @service.save
 			redirect_to services_path
 		else
 			render 'new'

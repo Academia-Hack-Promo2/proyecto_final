@@ -6,12 +6,11 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-12">
-							<%= semantic_form_for @p_bill do |f| %>
+							<%= semantic_form_for @provider_bill do |f| %>
 							<%= f.input :bill_number, placeholder: "Number Bill" %>
 							<%= f.input :description, placeholder: "Descrption" %>
 							<%= f.input :amount, placeholder: "Insert Amount" %>
 							<%= f.input :status, placeholder: "pendiente/pagada" %>
-							<%= f.input :payment_number, placeholder: "Insert Payment Number" %>
 						</div>
 						<div class="col-md-2">
 							<%= f.input :provider_id, placeholder: "Insert provider" %>

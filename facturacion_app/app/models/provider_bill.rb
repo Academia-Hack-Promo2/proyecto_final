@@ -4,7 +4,6 @@ class ProviderBill < ActiveRecord::Base
     message: "is not a valid status" }
 	validates :bill_number, numericality: true, presence: true
 	validates :amount, numericality: true, presence: true
-	validates :payment_number, numericality: true, presence: true
 
   belongs_to :provider
 end

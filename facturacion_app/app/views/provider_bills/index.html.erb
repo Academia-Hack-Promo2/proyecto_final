@@ -22,17 +22,15 @@
                 <th>Description</th>
                 <th>Amount</th>
                 <th>Status</th>
-                <th>Payment Number</th>
               </tr>
             </thead>
             <tbody>
-              <% @p_bills.each do |p_bill| %>
+              <% @provider_bills.each do |p_bill| %>
               <tr>
                 <td><%= p_bill.bill_number %></td>
                 <td><%= p_bill.description %></td>
                 <td><%= p_bill.amount %></td>
                 <td><%= p_bill.status %></td>
-                <td><%= p_bill.payment_number %></td>
                 <td><%= link_to "Edit", edit_provider_bill_path(p_bill), class:"btn btn-default" %></td>
               </tr>
               <% end %>

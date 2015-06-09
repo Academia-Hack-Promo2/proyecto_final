@@ -8,7 +8,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :email, limit: 30, null:false
       t.string :active, limit: 1, null:false
 
-      t.string :identification, limit: 10, null:false, index: true
+      t.string :identification, limit: 10, null:false
       t.references :client, index: true, foreign_key: true
       t.timestamps null: false
     end

@@ -11,36 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604004203) do
+ActiveRecord::Schema.define(version: 20150609204040) do
 
   create_table "bills", force: :cascade do |t|
-    t.string   "bill_number",    limit: 10,  null: false
-    t.string   "bill_control",   limit: 10,  null: false
+    t.string   "bill_number",   limit: 10,  null: false
+    t.string   "bill_control",  limit: 10,  null: false
     t.date     "emition_date"
     t.date     "payment_date"
-    t.string   "client_rif",     limit: 15,  null: false
-    t.string   "client_name",    limit: 40,  null: false
-    t.string   "client_adress",  limit: 255
-    t.string   "client_phone",   limit: 11,  null: false
-    t.string   "client_email",   limit: 30
-    t.string   "detail",         limit: 255
-    t.integer  "quantity",       limit: 4,   null: false
-    t.integer  "unit_price",     limit: 4,   null: false
-    t.integer  "tax",            limit: 4,   null: false
-    t.integer  "bill_total",     limit: 4,   null: false
-    t.string   "status",         limit: 9,   null: false
-    t.integer  "service_id",     limit: 4
-    t.integer  "client_id",      limit: 4
-    t.integer  "transaction_id", limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "client_rif",    limit: 15,  null: false
+    t.string   "client_name",   limit: 40,  null: false
+    t.string   "client_adress", limit: 255
+    t.string   "client_phone",  limit: 11,  null: false
+    t.string   "client_email",  limit: 30
+    t.string   "detail",        limit: 255
+    t.integer  "quantity",      limit: 4,   null: false
+    t.integer  "unit_price",    limit: 4,   null: false
+    t.integer  "tax",           limit: 4,   null: false
+    t.integer  "bill_total",    limit: 4,   null: false
+    t.string   "status",        limit: 9,   null: false
+    t.integer  "service_id",    limit: 4
+    t.integer  "client_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "bills", ["bill_control"], name: "index_bills_on_bill_control", using: :btree
   add_index "bills", ["bill_number"], name: "index_bills_on_bill_number", using: :btree
   add_index "bills", ["client_id"], name: "index_bills_on_client_id", using: :btree
   add_index "bills", ["service_id"], name: "index_bills_on_service_id", using: :btree
-  add_index "bills", ["transaction_id"], name: "index_bills_on_transaction_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",       limit: 40,  null: false
@@ -55,18 +53,16 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "clients", ["rif"], name: "index_clients_on_rif", using: :btree
 
   create_table "provider_bills", force: :cascade do |t|
-    t.integer  "bill_number",    limit: 4,   null: false
-    t.string   "description",    limit: 255
-    t.integer  "amount",         limit: 4,   null: false
-    t.string   "status",         limit: 9,   null: false
-    t.integer  "provider_id",    limit: 4
-    t.integer  "transaction_id", limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "bill_number", limit: 4,   null: false
+    t.string   "description", limit: 255
+    t.integer  "amount",      limit: 4,   null: false
+    t.string   "status",      limit: 9,   null: false
+    t.integer  "provider_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "provider_bills", ["provider_id"], name: "index_provider_bills_on_provider_id", using: :btree
-  add_index "provider_bills", ["transaction_id"], name: "index_provider_bills_on_transaction_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
     t.string   "name",       limit: 40,  null: false
@@ -106,9 +102,14 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.integer  "transaction_total",  limit: 4,  null: false
     t.date     "transaction_date",              null: false
     t.integer  "bill_number",        limit: 4,  null: false
+    t.integer  "bill_id",            limit: 4
+    t.integer  "provider_bill_id",   limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
+
+  add_index "transactions", ["bill_id"], name: "index_transactions_on_bill_id", using: :btree
+  add_index "transactions", ["provider_bill_id"], name: "index_transactions_on_provider_bill_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",           limit: 15,  null: false
@@ -128,8 +129,8 @@ ActiveRecord::Schema.define(version: 20150604004203) do
 
   add_foreign_key "bills", "clients"
   add_foreign_key "bills", "services"
-  add_foreign_key "bills", "transactions"
   add_foreign_key "provider_bills", "providers"
-  add_foreign_key "provider_bills", "transactions"
   add_foreign_key "students", "clients"
+  add_foreign_key "transactions", "bills"
+  add_foreign_key "transactions", "provider_bills"
 end

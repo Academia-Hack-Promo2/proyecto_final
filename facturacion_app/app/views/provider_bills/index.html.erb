@@ -31,7 +31,8 @@
                 <td><%= p_bill.description %></td>
                 <td><%= p_bill.amount %></td>
                 <td><%= p_bill.status %></td>
-                <td><%= link_to "Edit", edit_provider_bill_path(p_bill), class:"btn btn-default" %></td>
+                <td><%= link_to "Add Transaction", 'http://localhost:3000/provider_bills/'+p_bill.id.to_s+'/transactions', class:"btn btn-default" %></td>
+                <td><%= link_to "View Transaction", 'http://localhost:3000/transactions?provider_bill_id='+p_bill.id.to_s, class:"btn btn-default" %></td>
               </tr>
               <% end %>
             </tbody>

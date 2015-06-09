@@ -19,7 +19,6 @@ class CreateBills < ActiveRecord::Migration
 
       t.references :service, index: true, foreign_key: true
       t.references :client, index: true, foreign_key: true
-      t.references :transaction, index: true, foreign_key: true
 
       t.timestamps null: false
     end

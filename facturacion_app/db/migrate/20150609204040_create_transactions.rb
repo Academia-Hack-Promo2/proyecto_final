@@ -6,6 +6,9 @@ class CreateTransactions < ActiveRecord::Migration
       t.date :transaction_date, null: false
       t.integer :bill_number, null: false
 
+      t.references :bill, index: true, foreign_key: true
+      t.references :provider_bill, index: true, foreign_key: true
+
       t.timestamps null: false
     end
   end

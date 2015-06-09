@@ -56,7 +56,7 @@ ProviderBill.create!([
 	{bill_number:100000123, description: "Pago de servicios electricos del mes de mayo del 2015",amount: 4000, status: "pendiente", provider_id: 3},
 	{bill_number:203000034, description: "Servicio de agua potable del mes de mayo del 2015",amount: 2000, status: "pendiente", provider_id: 1},
 	{bill_number:203000034, description: "Servicio Internet de 10Mb mes de mayo del 2015",amount: 10000, status: "pendiente", provider_id: 5},
-	{bill_number:506700089, description: "putifarra",amount: 10000, status: "cancelada", provider_id: 5}
+	{bill_number:506700089, description: "putifarra",amount: 10000, status: "pendiente", provider_id: 5}
 ])
 
 # Bill.create!([

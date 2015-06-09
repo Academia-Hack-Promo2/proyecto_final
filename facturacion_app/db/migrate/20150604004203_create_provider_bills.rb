@@ -7,7 +7,6 @@ class CreateProviderBills < ActiveRecord::Migration
       t.string :status, null:false,  limit: 9
 
       t.references :provider, index: true, foreign_key: true
-      t.references :transaction, index: true, foreign_key: true
 
       t.timestamps null: false
     end

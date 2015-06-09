@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   resources :services
 
   resources :provider_bills
+  get '/provider_bills/:provider_id/transactions' => 'transactions#new'
 
   resources :bills
+  get '/bills/:bill_id/transactions' => 'transactions#new'
+
+  resources :transactions
+
 
 end

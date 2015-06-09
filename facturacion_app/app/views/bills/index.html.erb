@@ -21,7 +21,6 @@
                 <th>Client</th>
                 <th>Rif</th>
                 <th>Bill number</th>
-                <th>Bill control</th>
                 <th>Emition Date</th>
                 <th>Status</th>
               </tr>
@@ -32,11 +31,10 @@
                 <td><%= bill.client_name %></td>
                 <td><%= bill.client_rif %></td>
                 <td><%= bill.bill_number %></td>
-                <td><%= bill.bill_control %></td>
                 <td><%= bill.emition_date %></td>
                 <td><%= bill.status %></td>
                 <td><%= link_to "Details", 'http://localhost:3000/bills/'+ bill.id.to_s, class:"btn btn-warning" %></td>
-                <td><%= link_to "Edit", edit_bill_path(bill), class:"btn btn-info" %></td>
+                <td><%= link_to "Add pay", 'http://localhost:3000/bills/'+ bill.id.to_s+'/transactions', class:"btn btn-default" %></td>
               </tr>
               <% end %>
             </tbody>

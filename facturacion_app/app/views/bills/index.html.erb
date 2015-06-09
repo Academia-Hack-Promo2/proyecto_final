@@ -35,6 +35,7 @@
                 <td><%= bill.status %></td>
                 <td><%= link_to "Details", 'http://localhost:3000/bills/'+ bill.id.to_s, class:"btn btn-warning" %></td>
                 <td><%= link_to "Add pay", 'http://localhost:3000/bills/'+ bill.id.to_s+'/transactions', class:"btn btn-default" %></td>
+                <td><%= link_to "View Transaction", 'http://localhost:3000/transactions?bill_id='+bill.id.to_s, class:"btn btn-default" %></td>
               </tr>
               <% end %>
             </tbody>

@@ -14,26 +14,26 @@
 ActiveRecord::Schema.define(version: 20150604004203) do
 
   create_table "bills", force: :cascade do |t|
-    t.string   "bill_number",    limit: 10,    null: false
-    t.string   "bill_control",   limit: 10,    null: false
+    t.string   "bill_number",    limit: 10,  null: false
+    t.string   "bill_control",   limit: 10,  null: false
     t.date     "issue_date"
     t.date     "payment_date"
-    t.string   "client_rif",     limit: 15,    null: false
-    t.string   "client_name",    limit: 40,    null: false
+    t.string   "client_rif",     limit: 15,  null: false
+    t.string   "client_name",    limit: 40,  null: false
     t.string   "client_adress",  limit: 255
-    t.string   "client_phone",   limit: 11,    null: false
+    t.string   "client_phone",   limit: 11,  null: false
     t.string   "client_email",   limit: 30
-    t.text     "detail",         limit: 65535
-    t.integer  "quantity",       limit: 4,     null: false
-    t.integer  "unit_price",     limit: 4,     null: false
-    t.integer  "tax",            limit: 4,     null: false
-    t.integer  "bill_total",     limit: 4,     null: false
-    t.string   "status",         limit: 9,     null: false
+    t.string   "detail",         limit: 255
+    t.integer  "quantity",       limit: 4,   null: false
+    t.integer  "unit_price",     limit: 4,   null: false
+    t.integer  "tax",            limit: 4,   null: false
+    t.integer  "bill_total",     limit: 4,   null: false
+    t.string   "status",         limit: 9,   null: false
     t.integer  "service_id",     limit: 4
     t.integer  "client_id",      limit: 4
     t.integer  "transaction_id", limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "bills", ["bill_control"], name: "index_bills_on_bill_control", using: :btree
@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   add_index "clients", ["rif"], name: "index_clients_on_rif", using: :btree
 
   create_table "provider_bills", force: :cascade do |t|
-    t.integer  "bill_number",    limit: 4,     null: false
-    t.text     "description",    limit: 65535
-    t.integer  "amount",         limit: 4,     null: false
-    t.string   "status",         limit: 9,     null: false
+    t.integer  "bill_number",    limit: 4,   null: false
+    t.string   "description",    limit: 255
+    t.integer  "amount",         limit: 4,   null: false
+    t.string   "status",         limit: 9,   null: false
     t.integer  "payment_number", limit: 4
     t.integer  "provider_id",    limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "provider_bills", ["bill_number"], name: "index_provider_bills_on_bill_number", using: :btree

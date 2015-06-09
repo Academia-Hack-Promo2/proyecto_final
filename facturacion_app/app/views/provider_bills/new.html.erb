@@ -4,16 +4,19 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading"><i class="fa fa-plus-square"></i> New Provider Bill</div>
 				<div class="panel-body">
-					<%= semantic_form_for @p_bill do |f| %>
-					<%= f.input :bill_number, placeholder: "Number Bill" %>
-					<%= f.input :description, placeholder: "Descrption" %>
-					<%= f.input :amount, placeholder: "Insert Amount" %>
-					<%= f.input :status, placeholder: "pendiente/pagada" %>
-					<%= f.input :payment_number, placeholder: "Insert Payment Number" %>
-					<%= f.input :provider_id, placeholder: "Insert provider" %>
-					<% end %>
-					<%= semantic_form_for @p_bill do |f| %>
-					<%= f.input :provider_id %>
+					<div class="row">
+						<div class="col-md-12">
+							<%= semantic_form_for @p_bill do |f| %>
+							<%= f.input :bill_number, placeholder: "Number Bill" %>
+							<%= f.input :description, placeholder: "Descrption" %>
+							<%= f.input :amount, placeholder: "Insert Amount" %>
+							<%= f.input :status, placeholder: "pendiente/pagada" %>
+							<%= f.input :payment_number, placeholder: "Insert Payment Number" %>
+						</div>
+						<div class="col-md-2<	">
+							<%= f.input :provider_id, placeholder: "Insert provider" %>
+						</div>		
+					</div>		
 					<%= f.action :submit, :label => "Submit", :button_html => { :class => "btn btn-primary"} %>
 					<% end %>
 				</div>

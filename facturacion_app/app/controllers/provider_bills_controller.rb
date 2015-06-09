@@ -9,6 +9,7 @@ class ProviderBillsController < ApplicationController
   end
   def new
     @p_bill = ProviderBill.new
+    @p_bill.provider_id = params[:provider_id]
   end
   def create
     @p_bill = ProviderBilll.new(permit_params)

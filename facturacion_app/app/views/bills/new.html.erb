@@ -5,16 +5,37 @@
 				<div class="panel-heading"><i class="fa fa-plus-square"></i> New Bill</div>
 				<div class="panel-body">
 					<%= semantic_form_for @bill do |f| %>
-					<%= f.input :bill_number, placeholder: "Insert Number Bill" %>
-					<%= f.input :bill_control, placeholder: "Insert Control Number Bill" %>
-					<%= f.input :payment_date %>
-					<%= f.input :client_rif, placeholder: "Insert Client Rif" %>
-					<%= f.input :client_name, placeholder: "Insert client name" %>
-					<%= f.input :client_phone, placeholder: "Insert client phone" %>
-					<%= f.input :client_email, placeholder: "Insert client mail" %>
-					<%= f.input :quantity, placeholder: "Service quantity" %>
 					<div class="row">
-						<div class="col-md-offset-6 col-md-6">
+						<div class="col-md-6">
+							<%= f.input :client_name %>
+						</div>
+						<div class="col-md-6">
+							<%= f.input :client_rif, :disabled => true %>
+						</div>
+						<div class="col-md-6">
+							<%= f.input :client_phone %>
+						</div>
+						<div class="col-md-6">
+							<%= f.input :client_email %>
+						</div>	
+						<div class="col-md-6">
+							<%= f.input :bill_number, placeholder: "Insert Number Bill" %>
+						</div>
+						<div class="col-md-6">
+							<%= f.input :bill_control, placeholder: "Insert Control Number Bill" %>
+						</div>
+					</div>
+					<%= f.input :payment_date %>
+					<%= f.input :issue_date %>
+
+					<div class="row">
+						<div class="col-md-3">
+							<%= f.input :status, placeholder: "pendiente/cancelada" %>
+						</div>
+						<div class="col-md-3">
+							<%= f.input :quantity, placeholder: "Service quantity" %>
+						</div>
+						<div class="col-md-6">
 							<div class="row"> 
 								<div class="col-md-6">
 									<%= f.input :unit_price, placeholder: "Unit Price" %>

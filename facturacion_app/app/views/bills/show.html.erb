@@ -1,0 +1,78 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">  
+			<div class="well well-sm"> 
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-md-offset-1 col-md-3">
+							<img alt="hack logo" src="/assets/hack.png" />
+						</div>
+						<div class="col-md-4 text-center">
+							<h3><p>{HACK}</p></h3>
+							<p>Academia de formación intensiva de programadores</p>
+							<p>Av. Sucre entre 4ta y 5ta transversal, Centro Boyacá, Piso 19.</p>
+						</div>
+						<div class="col-md-2 text-center">
+							<h3>Factura Nº</h3>
+						</div>
+						<div class="col-md-2 text-center">
+							<h3><ins><%= @bill.bill_number %></ins></h3> 
+						</div>
+					</div>
+
+					<div class="container-fluid list-group-item-info">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-6 ">Fecha de Emision: <%= @bill.issue_date %> (YYYY/MM/DD)</div>
+								<div class="col-md-6 ">Fecha de Pago: <%= @bill.payment_date %> (YYYY/MM/DD)</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-8">Señores:  <%= @bill.client_name %></div>
+								<div class="col-md-4">Señores:  <%= @bill.client_rif %></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-8">Direccion:  <%= @bill.client_adress %></div>
+								<div class="col-md-4">Telefeno	:  <%= @bill.client_phone %></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="container-fluid list-group-item-info">
+					<div class="row">
+						<div class="col-md-12">
+							<table class="table table-hover col-md-12">
+								<thead>
+									<tr>
+										<th>Cantidad</th>
+										<th>Descripcion</th>
+										<th>Valor Unitario</th>
+										<th>Valor Total</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><%= @bill.detail %></td>
+										<td><%= @bill.detail %></td>
+										<td><%= @bill.unit_price %></td>
+										<td><%= @bill.bill_total %></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+

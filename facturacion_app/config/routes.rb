@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :provider_bills
 
   resources :bills
+  get "/clients/:id/new_bill" => "bills#new"
 end

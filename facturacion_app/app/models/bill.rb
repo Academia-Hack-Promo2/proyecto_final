@@ -1,4 +1,7 @@
 class Bill < ActiveRecord::Base
+	validates :status, presence: true, inclusion: { in: %w(pendiente cancelada),
+    message: "is not a valid status" }
+	
 	validates :bill_number, length: {in: 7..10}, presence: true, uniqueness: true
 	validates :bill_control, length: {in: 7..10}, presence: true, uniqueness: true
 	validates :payment_date, presence: true
@@ -11,6 +14,6 @@ class Bill < ActiveRecord::Base
 	validates :tax, numericality: true
 	validates :bill_total, numericality: true
 	
-  belongs_to :service
-  belongs_to :client
+	belongs_to :service
+	belongs_to :client
 end

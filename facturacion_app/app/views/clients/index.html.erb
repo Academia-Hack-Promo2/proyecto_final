@@ -22,7 +22,7 @@
                 <td><%= client.phone %></td>
                 <td><%= client.email %></td>
                 <td><%= client.address %></td>
-                <td><%= link_to "New Bill", 'falta por hacer', class:"btn btn-warning" %></td>
+                <td><%= link_to "New Bill", 'http://localhost:3000/clients/'+client.id.to_s+'/new_bill/', class:"btn btn-warning" %></td>
                 <td><%= link_to "Edit", edit_client_path(client), class:"btn btn-info" %></td>
               </tr>
               <% end %>

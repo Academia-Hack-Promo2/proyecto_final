@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   create_table "bills", force: :cascade do |t|
     t.string   "bill_number",    limit: 10,    null: false
     t.string   "bill_control",   limit: 10,    null: false
-    t.date     "issue_date",                   null: false
+    t.date     "issue_date"
     t.date     "payment_date"
     t.string   "client_rif",     limit: 15,    null: false
     t.string   "client_name",    limit: 40,    null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.integer  "unit_price",     limit: 4,     null: false
     t.integer  "tax",            limit: 4,     null: false
     t.integer  "bill_total",     limit: 4,     null: false
+    t.string   "status",         limit: 9,     null: false
     t.integer  "service_id",     limit: 4
     t.integer  "client_id",      limit: 4
     t.integer  "transaction_id", limit: 4
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.integer  "bill_number",    limit: 4,     null: false
     t.text     "description",    limit: 65535
     t.integer  "amount",         limit: 4,     null: false
-    t.integer  "status",         limit: 1,     null: false
+    t.string   "status",         limit: 9,     null: false
     t.integer  "payment_number", limit: 4
     t.integer  "provider_id",    limit: 4
     t.datetime "created_at",                   null: false
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
     t.string   "adress",         limit: 255
     t.string   "phone",          limit: 11,  null: false
     t.string   "email",          limit: 30,  null: false
-    t.integer  "active",         limit: 1,   null: false
+    t.string   "active",         limit: 1,   null: false
     t.string   "identification", limit: 10,  null: false
     t.integer  "client_id",      limit: 4
     t.datetime "created_at",                 null: false

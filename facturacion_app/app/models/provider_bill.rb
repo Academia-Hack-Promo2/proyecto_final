@@ -1,6 +1,7 @@
 class ProviderBill < ActiveRecord::Base
-	enum status: {cancelada: 1, pendiente: 0}
-
+	
+	validates :status, presence: true, inclusion: { in: %w(pendiente cancelada),
+    message: "is not a valid status" }
 	validates :bill_number, numericality: true, presence: true
 	validates :amount, numericality: true, presence: true
 	validates :payment_number, numericality: true, presence: true

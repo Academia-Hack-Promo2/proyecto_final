@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150604004203) do
   create_table "bills", force: :cascade do |t|
     t.string   "bill_number",    limit: 10,  null: false
     t.string   "bill_control",   limit: 10,  null: false
-    t.date     "emitio_date"
+    t.date     "emition_date"
     t.date     "payment_date"
     t.string   "client_rif",     limit: 15,  null: false
     t.string   "client_name",    limit: 40,  null: false

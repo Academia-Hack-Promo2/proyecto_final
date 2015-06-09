@@ -14,6 +14,7 @@ class BillsController < ApplicationController
     @bill = Bill.new
     @client = Client.find(params[:client_id])
     @service = Service.find(params[:service_id])
+
     @bill.client_rif = @client.rif
     @bill.client_name = @client.name
     @bill.client_phone = @client.phone
@@ -48,8 +49,9 @@ class BillsController < ApplicationController
       redirect_to bills_path
     end
   end
+
   private
     def permit_params
-      params.require(:bill).permit(:bill_number, :bill_control, :payment_date, :issue_date, :client_rif, :client_name, :client_phone, :client_email, :quantity, :unit_price, :tax, :bill_total, :status, :detail)
+      params.require(:bill).permit(:bill_number, :bill_control, :payment_date, :emition_date, :client_rif, :client_name, :client_phone, :client_email, :quantity, :unit_price, :tax, :bill_total, :status, :detail)
     end
 end

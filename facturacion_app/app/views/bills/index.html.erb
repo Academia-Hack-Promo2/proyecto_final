@@ -10,7 +10,7 @@
             <div class="btn-group col-md-3 col-md-offset-7" role="group">
               <%= link_to "All", 'http://localhost:3000/bills', class:"btn btn-default" %>
               <%= link_to "Pendites", 'http://localhost:3000/bills?status=pendiente', class:"btn btn-default" %>
-              <%= link_to "Canceladas", 'http://localhost:3000/bills?status=canceladas', class:"btn btn-default" %>
+              <%= link_to "Canceladas", 'http://localhost:3000/bills?status=cancelada', class:"btn btn-default" %>
             </div>
           </div>
         </div>
@@ -23,6 +23,7 @@
                 <th>Bill number</th>
                 <th>Bill control</th>
                 <th>quantity</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -32,7 +33,8 @@
                 <td><%= bill.client_rif %></td>
                 <td><%= bill.bill_number %></td>
                 <td><%= bill.bill_control %></td>
-                <td><%= bill.quantity %></td>
+                <td><%= bill.emition_date %></td>
+                <td><%= bill.status %></td>
                 <td><%= link_to "Details", 'http://localhost:3000/bills/'+ bill.id.to_s, class:"btn btn-warning" %></td>
                 <td><%= link_to "Edit", edit_bill_path(bill), class:"btn btn-info" %></td>
               </tr>

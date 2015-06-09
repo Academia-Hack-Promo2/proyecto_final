@@ -23,7 +23,6 @@
                 <th>Amount</th>
                 <th>Status</th>
                 <th>Payment Number</th>
-                <th>Provider id</th>
               </tr>
             </thead>
             <tbody>
@@ -34,7 +33,6 @@
                 <td><%= p_bill.amount %></td>
                 <td><%= p_bill.status %></td>
                 <td><%= p_bill.payment_number %></td>
-                <td><%= p_bill.provider_id %></td>
                 <td><%= link_to "Edit", edit_provider_bill_path(p_bill), class:"btn btn-default" %></td>
               </tr>
               <% end %>

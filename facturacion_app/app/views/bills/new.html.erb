@@ -18,6 +18,9 @@
 						<div class="col-md-6">
 							<%= f.input :client_email %>
 						</div>	
+						<div class="col-md-12">
+							<%= f.input :client_adress %>
+						</div>
 						<div class="col-md-6">
 							<%= f.input :bill_number, placeholder: "Insert Number Bill" %>
 						</div>
@@ -25,10 +28,10 @@
 							<%= f.input :bill_control, placeholder: "Insert Control Number Bill" %>
 						</div>
 						<div class="col-md-12">
-							<%= f.input :payment_date %>
+							<%= f.input :emition_date %>
 						</div>
 						<div class="col-md-12">
-							<%= f.input :emition_date %>
+							<%= f.input :payment_date %>
 						</div>
 					</div>
 					<div class="row">

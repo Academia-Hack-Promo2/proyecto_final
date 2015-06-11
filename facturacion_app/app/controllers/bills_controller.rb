@@ -19,6 +19,7 @@ class BillsController < ApplicationController
     @bill.client_name = @client.name
     @bill.client_phone = @client.phone
     @bill.client_email = @client.email
+    @bill.client_adress = @client.address
     @bill.client_id = @client.id
     @bill.service_id = @service.id
     @bill.detail = @service.details
@@ -52,6 +53,6 @@ class BillsController < ApplicationController
 
   private
     def permit_params
-      params.require(:bill).permit(:bill_number, :bill_control, :payment_date, :emition_date, :client_rif, :client_name, :client_phone, :client_email, :quantity, :unit_price, :tax, :bill_total, :status, :detail)
+      params.require(:bill).permit(:bill_number, :bill_control, :payment_date, :emition_date, :client_rif, :client_name, :client_phone, :client_adress, :client_email, :quantity, :unit_price, :tax, :bill_total, :status, :detail)
     end
 end

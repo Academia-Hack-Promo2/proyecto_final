@@ -13,7 +13,8 @@ class Bill < ActiveRecord::Base
 	validates :unit_price, numericality: true
 	validates :tax, numericality: true
 	validates :bill_total, numericality: true
-	
+	validates :client_adress, presence: true
+
 	belongs_to :service
 	belongs_to :client
 end
